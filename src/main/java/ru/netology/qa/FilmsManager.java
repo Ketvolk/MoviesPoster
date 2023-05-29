@@ -17,7 +17,6 @@ public class FilmsManager {
     public String[] findAll() {
         return films;
     }
-
     public String[] findLast(int limit) {
         if (limit > films.length) {
             limit = films.length;
