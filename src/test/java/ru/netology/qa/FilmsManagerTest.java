@@ -34,7 +34,7 @@ public class FilmsManagerTest {
         String[] actual = manager.findAll();
         Assertions.assertArrayEquals(expected, actual);
     }
-
+    
     @Test
     public void ShouldFindLastUnderLimit() {
         FilmsManager manager = new FilmsManager();
