@@ -30,11 +30,12 @@ public class FilmsManagerTest {
     public void ShouldAddOne() {
         FilmsManager manager = new FilmsManager();
         manager.add("Матрица");
+
         String[] expected = {"Матрица"};
         String[] actual = manager.findAll();
         Assertions.assertArrayEquals(expected, actual);
     }
-    
+
     @Test
     public void ShouldFindLastUnderLimit() {
         FilmsManager manager = new FilmsManager();
@@ -43,7 +44,7 @@ public class FilmsManagerTest {
         manager.add("Троя");
 
         String[] expected = {"Троя", "Маска", "Матрица"};
-        String[] actual = manager.findLast(5);
+        String[] actual = manager.findLast();
         Assertions.assertArrayEquals(expected, actual);
     }
 
@@ -58,7 +59,7 @@ public class FilmsManagerTest {
         manager.add("Властелин колец");
 
         String[] expected = {"Властелин колец", "Звездные войны", "Гладиатор", "Троя", "Маска"};
-        String[] actual = manager.findLast(5);
+        String[] actual = manager.findLast();
         Assertions.assertArrayEquals(expected, actual);
     }
 }
