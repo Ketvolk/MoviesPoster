@@ -17,13 +17,14 @@ public class FilmsManager {
     }
 
     public String[] findLast() {
+        int lengthLast;
         if (5 > films.length) {
-            5 = films.length;
-        }
+            lengthLast = films.length;
+        } else lengthLast = 5;
         int j = 0;
-        String[] temp = new String[5];
-        for (int i = films.length - 1; i > films.length - 1 - 5; i--) {
-            temp[j] = films[i];
+        String[] temp = new String[lengthLast];
+        for (int i = 0; i < temp.length; i++) {
+            temp[j] = films[films.length - 1 - i];
             j++;
         }
         return temp;
