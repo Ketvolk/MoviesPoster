@@ -38,27 +38,44 @@ public class FilmsManagerTest {
 
     @Test
     public void ShouldFindLastUnderLimit() {
-        manager.add("Матрица");
-        manager.add("Маска");
-        manager.add("Троя");
+        FilmsManager managerWithLimit = new FilmsManager(5);
+
+        managerWithLimit.add("Матрица");
+        managerWithLimit.add("Маска");
+        managerWithLimit.add("Троя");
 
         String[] expected = {"Троя", "Маска", "Матрица"};
-        String[] actual = manager.findLast();
+        String[] actual = managerWithLimit.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
-    public void ShouldFindLast() {
-        manager.add("Матрица");
-        manager.add("Маска");
-        manager.add("Троя");
-        manager.add("Гладиатор");
-        manager.add("Звездные войны");
-        manager.add("Властелин колец");
+    public void ShouldFindLastUpperLimit() {
+        FilmsManager managerWithLimit = new FilmsManager(3);
 
-        String[] expected = {"Властелин колец", "Звездные войны", "Гладиатор", "Троя", "Маска"};
-        String[] actual = manager.findLast();
+        managerWithLimit.add("Один дома");
+        managerWithLimit.add("Аватар");
+        managerWithLimit.add("Матрица");
+        managerWithLimit.add("Маска");
+        managerWithLimit.add("Троя");
+
+        String[] expected = {"Троя", "Маска", "Матрица"};
+        String[] actual = managerWithLimit.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void ShouldFindLastLimit() {
+        FilmsManager managerWithLimit = new FilmsManager(3);
+
+        managerWithLimit.add("Матрица");
+        managerWithLimit.add("Маска");
+        managerWithLimit.add("Троя");
+
+        String[] expected = {"Троя", "Маска", "Матрица"};
+        String[] actual = managerWithLimit.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
     }
